@@ -21,6 +21,7 @@ export default async function PreviewPrice({ price }: { price: VariantPrice }) {
           "text-ui-fg-interactive": price.price_type === "sale",
         })}
         data-testid="price"
+         size="xlarge"
       >
         {price.calculated_price}
       </Text>

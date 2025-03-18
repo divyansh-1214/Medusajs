@@ -117,8 +117,17 @@ export default function ProductActions({
     <>
       <div className="flex flex-col gap-y-2" ref={actionsRef}>
         <div>
+          <div className=" border-b-4 pb-7 ">
+            <h1 className="text-4xl font-semibold">{product.title}</h1>
+            <h1 className="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, exercitationem.</h1>
+            <div className="flex gap-5 p-2">
+              <div className="rating border border-white rounded-2xl bg-amber-300 p-1 w-10 text-center text-red-600">4.8</div>
+              <div className="rating border border-white rounded-2xl bg-amber-300 p-1 w-32 text-center text-red-600">67 reviews</div>
+            </div>
+          </div>
+          <ProductPrice product={product} variant={selectedVariant} />
           {(product.variants?.length ?? 0) > 1 && (
-            <div className="flex flex-col gap-y-4">
+            <div className="flex flex-col gap-y-4 p-4">
               {(product.options || []).map((option) => {
                 return (
                   <div key={option.id}>
@@ -138,7 +147,6 @@ export default function ProductActions({
           )}
         </div>
 
-        <ProductPrice product={product} variant={selectedVariant} />
 
         <Button
           onClick={handleAddToCart}
@@ -157,8 +165,8 @@ export default function ProductActions({
           {!selectedVariant && !options
             ? "Select variant"
             : !inStock || !isValidVariant
-            ? "Out of stock"
-            : "Add to cart"}
+              ? "Out of stock"
+              : "Add to cart"}
         </Button>
         <MobileActions
           product={product}
