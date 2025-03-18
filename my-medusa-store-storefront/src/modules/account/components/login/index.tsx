@@ -14,7 +14,7 @@ const Login = ({ setCurrentView }: Props) => {
 
   return (
     <div
-      className="max-w-sm w-full flex flex-col items-center"
+      className="max-w-md w-[100rem] flex flex-col items-center"
       data-testid="login-page"
     >
       <h1 className="text-large-semi uppercase mb-6">Welcome back</h1>
@@ -23,16 +23,23 @@ const Login = ({ setCurrentView }: Props) => {
       </p>
       <form className="w-full" action={formAction}>
         <div className="flex flex-col w-full gap-y-2">
+          <div>
+            <h3 className="text-sm p-1">Email</h3>
+            <Input
+              // className="w-full pb-3 border border-black rounded-md"
+              label="Email"
+              name="email"
+              type="email"
+              title="Enter a valid email address."
+              autoComplete="email"
+              required
+              data-testid="email-input"
+            />
+          </div>
+          <div className="">
+          <h3 className="text-sm p-1">Password</h3>
           <Input
-            label="Email"
-            name="email"
-            type="email"
-            title="Enter a valid email address."
-            autoComplete="email"
-            required
-            data-testid="email-input"
-          />
-          <Input
+            // className="w-full pb-3 border border-black rounded-md justify-center"
             label="Password"
             name="password"
             type="password"
@@ -40,11 +47,21 @@ const Login = ({ setCurrentView }: Props) => {
             required
             data-testid="password-input"
           />
+          </div>
         </div>
         <ErrorMessage error={message} data-testid="login-error-message" />
-        <SubmitButton data-testid="sign-in-button" className="w-full mt-6">
-          Sign in
+        <SubmitButton data-testid="sign-in-button" variant="transparent" className="w-full mt-6 bg-yellow-300">
+          Login
         </SubmitButton>
+        {/* <SubmitButton data-testid="goole" variant="transparent" className="w-full mt-6 border border-black">
+          Contine with Google
+        </SubmitButton>
+        <SubmitButton data-testid="sign-in-button" variant="transparent" className="w-full mt-6 border border-black">
+        Contine with Apple
+        </SubmitButton>
+        <SubmitButton data-testid="sign-in-button" variant="transparent" className="w-full mt-6 border border-black">
+        Contine with Facebook
+        </SubmitButton> */}
       </form>
       <span className="text-center text-ui-fg-base text-small-regular mt-6">
         Not a member?{" "}
