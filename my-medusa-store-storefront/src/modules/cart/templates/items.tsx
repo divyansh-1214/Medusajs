@@ -12,44 +12,32 @@ type ItemsTemplateProps = {
 const ItemsTemplate = ({ cart }: ItemsTemplateProps) => {
   const items = cart?.items
   return (
-    <div>
-      <div className="pb-3 flex items-center">
+    
+    <div className="border border-black rounded-3xl p-10">
+      <div className="pb-5 border-b border-black flex items-center">
         <Heading className="text-[2rem] leading-[2.75rem]">Cart</Heading>
       </div>
-      <Table>
-        <Table.Header className="border-t-0">
-          <Table.Row className="text-ui-fg-subtle txt-medium-plus">
-            <Table.HeaderCell className="!pl-0">Item</Table.HeaderCell>
-            <Table.HeaderCell></Table.HeaderCell>
-            <Table.HeaderCell>Quantity</Table.HeaderCell>
-            <Table.HeaderCell className="hidden small:table-cell">
-              Price
-            </Table.HeaderCell>
-            <Table.HeaderCell className="!pr-0 text-right">
-              Total
-            </Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          {items
-            ? items
-                .sort((a, b) => {
-                  return (a.created_at ?? "") > (b.created_at ?? "") ? -1 : 1
-                })
-                .map((item) => {
-                  return (
-                    <Item
-                      key={item.id}
-                      item={item}
-                      currencyCode={cart?.currency_code}
-                    />
-                  )
-                })
-            : repeat(5).map((i) => {
-                return <SkeletonLineItem key={i} />
-              })}
-        </Table.Body>
-      </Table>
+      <div className="pb-5  justify-items-center pt-5">
+        {items
+          ? items
+            .sort((a, b) => {
+              return (a.created_at ?? "") > (b.created_at ?? "") ? -1 : 1
+            })
+            .map((item) => {
+              return (
+                <div className="border-b border-black w-full justify-items-center p-2 mt-2">
+                <Item
+                  key={item.id}
+                  item={item}
+                  currencyCode={cart?.currency_code}
+                />
+                </div>
+              )
+            })
+          : repeat(5).map((i) => {
+            return <SkeletonLineItem key={i} />
+          })}
+      </div>
     </div>
   )
 }

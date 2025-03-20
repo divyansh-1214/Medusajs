@@ -55,35 +55,23 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
     <div className="w-full bg-white flex flex-col">
       <div className="txt-medium">
         <form action={(a) => addPromotionCode(a)} className="w-full mb-5">
-          <Label className="flex gap-x-1 my-2 items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              type="button"
-              className="txt-medium text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
-              data-testid="add-discount-button"
-            >
-              Add Promotion Code(s)
-            </button>
-
-            {/* <Tooltip content="You can add multiple promotion codes">
-              <InformationCircleSolid color="var(--fg-muted)" />
-            </Tooltip> */}
-          </Label>
-
-          {isOpen && (
+          { (
             <>
-              <div className="flex w-full gap-x-2">
+              <div className="flex w-full gap-x-2 border border-black rounded-lg">
                 <Input
-                  className="size-full"
+                  className="w-[14rem] h-11 bg-white border-r border-black rounded-r-none text-black "
+                  size="small"
                   id="promotion-input"
                   name="code"
                   type="text"
                   autoFocus={false}
+                  placeholder="Promocode"
                   data-testid="discount-input"
                 />
                 <SubmitButton
-                  variant="secondary"
+                  variant="transparent"
                   data-testid="discount-apply-button"
+                  className="w-fit"
                 >
                   Apply
                 </SubmitButton>
@@ -136,11 +124,6 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                             </>
                           )}
                         )
-                        {/* {promotion.is_automatic && (
-                          <Tooltip content="This promotion is automatically applied">
-                            <InformationCircleSolid className="inline text-zinc-400" />
-                          </Tooltip>
-                        )} */}
                       </span>
                     </Text>
                     {!promotion.is_automatic && (

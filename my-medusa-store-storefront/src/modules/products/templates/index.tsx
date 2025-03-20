@@ -27,10 +27,6 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
   if (!product || !product.id) {
     return notFound()
   }
-  console.log("hey1 love")
-  console.log(product);
-  console.log(product.title);
-
   return (
     <>
       <div
@@ -38,8 +34,6 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         data-testid="product-container"
       >
         <div className="flex flex-col w-[5rem] py-8 gap-y-6">
-          {/* <ProductInfo product={product} />
-          <ProductTabs product={product} /> */}
           {(product?.images ?? []).map((image, index) => {
             return (
               <Container
@@ -89,24 +83,6 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         <Suspense fallback={<SkeletonRelatedProducts />}>
           <RelatedProducts product={product} countryCode={countryCode} />
         </Suspense>
-
-
-        {/* from */}
-        {/* <div className="w-full justify-items-start border-black border-8 p-5 ">
-          <div className="border-black border-2 w-full p-5">
-            <h1>write a reviews</h1>
-            <div className="grid grid-rows-2">
-              <div className="grid grid-rows-2">
-                <h1>title of the review</h1>
-                <input type="text" />
-              </div>
-              <div className="grid grid-rows-2">
-                <h1>title of the review</h1>
-                <input type="text" />
-              </div>
-            </div>
-          </div>
-        </div> */}
       </div>
     </>
   )

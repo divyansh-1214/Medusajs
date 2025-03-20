@@ -122,6 +122,7 @@ const Payment = ({
           Payment
           {!isOpen && paymentReady && <CheckCircleSolid />}
         </Heading>
+        
         {!isOpen && paymentReady && (
           <Text>
             <button

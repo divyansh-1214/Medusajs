@@ -20,7 +20,8 @@ const DeleteButton = ({
       setIsDeleting(false)
     })
   }
-
+  console.log("hey can i fuck you")
+  console.log(children)
   return (
     <div
       className={clx(
@@ -29,7 +30,7 @@ const DeleteButton = ({
       )}
     >
       <button
-        className="flex gap-x-1 text-ui-fg-subtle hover:text-ui-fg-base cursor-pointer"
+        className="flex gap-x-1 text-ui-fg-subtle hover:text-ui-fg-base cursor-pointer text-2xl"
         onClick={() => handleDelete(id)}
       >
         {isDeleting ? <Spinner className="animate-spin" /> : <Trash />}
